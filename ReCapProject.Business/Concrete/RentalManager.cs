@@ -5,6 +5,7 @@ using ReCapProject.Core.Aspects.Autofac.Validation;
 using ReCapProject.Core.Utilities.Result;
 using ReCapProject.DataAccess.Abstract;
 using ReCapProject.Entities;
+using ReCapProject.Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -53,6 +54,12 @@ namespace ReCapProject.Business.Concrete
         {
             
             return new SuccessDataResult<Rental>(_rentalDal.Get(x => x.Id == id));
+        }
+
+        public IDataResult<List<RentalDetailDto>> GetRentalDetails()
+        {
+            
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails());
         }
 
         [ValidationAspect(typeof(RentalValidator))]

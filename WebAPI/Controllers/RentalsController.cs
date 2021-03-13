@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
         [HttpGet("getallrentals")]
         public IActionResult Get()
         {
-            var result= _rentalService.GetAllRentals();
+            var result= _rentalService.GetRentalDetails();
             if (result.Success)
             {
                 return Ok(result);

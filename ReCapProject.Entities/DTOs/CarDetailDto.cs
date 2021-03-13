@@ -12,5 +12,6 @@ namespace ReCapProject.Entities.DTOs
         public string BrandName { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
+        public string ModelYear { get; set; }
     }
 }
