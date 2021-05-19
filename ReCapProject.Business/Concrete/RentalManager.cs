@@ -21,21 +21,43 @@ namespace ReCapProject.Business.Concrete
             this._rentalDal = rentalDal;
         }
 
-        [ValidationAspect(typeof(RentalValidator))]
+        //[ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
-           var rentalinformation= _rentalDal.Get(r => r.CarId == rental.CarId);
-            if (rentalinformation.ReturnDate!=null)
+            var newrentdate = rental.RentDate;
+            //select* from rentals where ReturnDate = (select MAX(ReturnDate) from Rentals where CarId = 4)
+           var rentalinformation= _rentalDal.GetLastRental(rental.CarId);
+
+            if (rentalinformation==null || rentalinformation.ReturnDate < newrentdate)
             {
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.RentalAdded);
             }
             else
             {
-                return new ErrorResult(Messages.Carnotreturn);
+                return new ErrorResult(Messages.CarAlreadyRented);
             }
            
             
+        }
+
+        public IDataResult<Rental> DateVerification(Rental rental)
+        {
+            var newrentdate = rental.RentDate;
+            //select* from rentals where ReturnDate = (select MAX(ReturnDate) from Rentals where CarId = 4)
+            var rentalinformation = _rentalDal.GetLastRental(rental.CarId);
+
+            if (rentalinformation == null || rentalinformation.ReturnDate < newrentdate)
+            {
+                
+                return new SuccessDataResult<Rental>(rental,Messages.CarIsAvailableForRental);
+            }
+            else
+            {
+                return new ErrorDataResult<Rental>(rental,Messages.CarAlreadyRented);
+            }
+
+
         }
 
         [ValidationAspect(typeof(RentalValidator))]

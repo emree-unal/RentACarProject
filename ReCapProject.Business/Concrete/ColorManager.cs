@@ -39,6 +39,11 @@ namespace ReCapProject.Business.Concrete
             return new SuccessDataResult<List<Color>>(colorDal.GetAll(),Messages.ColorsListed);
         }
 
+        public IDataResult<List<Color>> GetColorByColorName(string colorName)
+        {
+            return new SuccessDataResult<List<Color>>(colorDal.GetAll(x => x.ColorName == colorName));
+        }
+
         public IDataResult<Color> GetColorById(int id)
         {
           

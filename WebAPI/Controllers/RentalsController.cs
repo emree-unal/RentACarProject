@@ -75,7 +75,19 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("datesisavailable")]
+        public IActionResult RentalDates(Rental rental)
+        {
+
+            var result = _rentalService.DateVerification(rental);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
         }
     }
 }

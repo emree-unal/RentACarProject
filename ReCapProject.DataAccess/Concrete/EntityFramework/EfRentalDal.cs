@@ -6,10 +6,24 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Linq.Expressions;
+
 namespace ReCapProject.DataAccess.Concrete.EntityFramework
 {
     public class EfRentalDal : EfEntityRepositoryBase<Rental, RentaCarContext>, IRentalDal
     {
+        public Rental GetLastRental(int carId)
+        {
+            using (RentaCarContext context = new RentaCarContext())
+            {
+                var result = from r in context.Rentals.Where(r => r.CarId == carId).OrderByDescending(r => r.ReturnDate)
+                             select r;
+
+
+                return result.FirstOrDefault();
+            }
+        }
+
         public List<RentalDetailDto> GetRentalDetails()
         {
 

@@ -23,13 +23,15 @@ namespace WebAPI.Controllers
         [HttpGet("getallcustomers")]
         public IActionResult Get()
         {
-          var result= _customerService.GetAllCustomers();
+          var result= _customerService.GetCustomersDetail();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest();
         }
+
+   
 
         [HttpGet("getcustomerbyId")]
         public IActionResult GetCustomerById(int id)

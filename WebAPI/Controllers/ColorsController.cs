@@ -46,6 +46,18 @@ namespace WebAPI.Controllers
             return BadRequest();
         }
 
+        [HttpGet("getcolorbycolorname")]
+        public IActionResult GetColorByColorName(string colorName)
+        {
+
+            var result = _colorService.GetColorByColorName(colorName);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
         [HttpDelete("delete")]
         public IActionResult Delete(int id)
         {

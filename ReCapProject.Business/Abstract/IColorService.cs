@@ -10,6 +10,7 @@ namespace ReCapProject.Business.Abstract
     {
         IDataResult<List<Color>> GetAllColors();
         IDataResult<Color> GetColorById(int id);
+        IDataResult<List<Color>> GetColorByColorName(string colorName);
         IResult Add(Color color);
         IResult Delete(Color color);
         IResult Update(Color color);

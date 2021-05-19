@@ -12,7 +12,7 @@ namespace ReCapProject.Business.ValidationRules.FluentValidation
         {
             RuleFor(r => r.CarId).NotEmpty();
             RuleFor(r => r.CustomerId).NotEmpty();
-            RuleFor(r => r.RentDate).NotEmpty().Must(BeforeDateTime);
+            RuleFor(r => r.RentDate).NotEmpty();
             RuleFor(r => r.ReturnDate).NotEmpty().GreaterThan(DateTime.Now);
 
 
@@ -20,13 +20,13 @@ namespace ReCapProject.Business.ValidationRules.FluentValidation
 
      
 
-        private bool BeforeDateTime(DateTime arg)
-        {
-            if (arg<DateTime.Now)
-            {
-                return false;
-            }
-            return true;
-        }
+        //private bool BeforeDateTime(DateTime arg)
+        //{
+        //    if (arg<DateTime.Now)
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
     }
 }

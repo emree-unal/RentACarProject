@@ -18,5 +18,19 @@
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Images\11e2fb62-adc7-4c00-9cf5-6ec0de082f34.jpg" />
+    <None Include="wwwroot\Images\268c982d-f288-4bec-86ee-1e9c6c2bfd53.png" />
+    <None Include="wwwroot\Images\277f7b64-7740-498b-87b1-358f99f4b382.jpg" />
+    <None Include="wwwroot\Images\466e865c-695f-485e-a87b-e2bbc9a05395.jpg" />
+    <None Include="wwwroot\Images\6a0f2109-d084-45b2-b516-428413a28f6a.jpg" />
+    <None Include="wwwroot\Images\7009c8a7-870a-414b-8f0c-b7c1c7822a95.jpg" />
+    <None Include="wwwroot\Images\b687be91-e1da-4e2f-9790-2aa7ed740988.png" />
+    <None Include="wwwroot\Images\c2bf3165-c08a-46d9-9996-a16cc6db302b.jpg" />
+    <None Include="wwwroot\Images\EmptyImage.jpg" />
+    <None Include="wwwroot\Images\fcd9be30-44e8-4b39-8bb5-c36b8c1e1922.jpg" />
+    <None Include="wwwroot\Images\ffde96b1-5a46-4383-a18f-8b35fd9cc8e4.jpg" />
+  </ItemGroup>
+
 
 </Project>

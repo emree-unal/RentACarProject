@@ -46,6 +46,11 @@ namespace ReCapProject.Business.Concrete
             return new SuccessDataResult<Brand>(brandDal.Get(x => x.BrandId == id));
         }
 
+        public IDataResult<List<Brand>> GetBrandByBrandName(string brandName)
+        {
+            return new SuccessDataResult<List<Brand>> (brandDal.GetAll(x => x.BrandName == brandName));
+        }
+
         [ValidationAspect(typeof(BrandValidator))]
         public IResult Update(Brand brand)
         {

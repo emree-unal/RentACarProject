@@ -54,5 +54,7 @@ namespace ReCapProject.Business.Constants
         public static string SuccessfulLogin= "Successful Login ";
         public static string UserAlreadyExists = " User Already Exists";
         public static string AccessTokenCreated= "Token Created ";
+        public static string CarAlreadyRented="The Car Already Rented on these dates";
+        public static string CarIsAvailableForRental = "The Car is available for on these dates";
     }
 }

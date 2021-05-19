@@ -16,5 +16,7 @@ namespace ReCapProject.Business.Abstract
         IResult Delete(Rental rental);
         IResult Update(Rental rental);
         IDataResult<List<RentalDetailDto>> GetRentalDetails();
+
+        IDataResult<Rental> DateVerification(Rental rental);
     }
 }
